@@ -1,4 +1,5 @@
 #include <jni.h>
+// #include <RPS.h>
 
 // Write C++ code here.
 //
@@ -18,17 +19,19 @@
 //      }
 //    }
 
-namespace FHLDemo
-{
-    void PlayGame() {
+// RPS rps;
+#include <rpsnative.h>
 
-    }
-}
+RPS::Game game;
 
 extern "C"
 JNIEXPORT jint JNICALL
 Java_com_microsoft_fhldemo_RPSNative_PlayGame(JNIEnv *env, jclass clazz, jint user_choice) {
     int userChoice = reinterpret_cast<int>(user_choice);
 
-    return userChoice;
+    RPS::Play userPlay = static_cast<RPS::Play>(userChoice);
+
+    auto result = game.play(userPlay);
+
+    return static_cast<jint>(result);
 }

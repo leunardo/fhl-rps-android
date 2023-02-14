@@ -8,6 +8,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         init {
             System.loadLibrary("fhldemo")
+            System.loadLibrary("rpsnative")
         }
     }
 
