@@ -1,4 +1,4 @@
-package com.microsoft.fhldemo
+package com.microsoft.rpsnative
 
 enum class Result {
     DRAW,
