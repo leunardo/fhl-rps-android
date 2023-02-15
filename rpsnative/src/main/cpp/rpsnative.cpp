@@ -27,6 +27,8 @@ namespace RPS
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> dist3(1,3);
 
+    RPS::Play lastPlay = Play::PAPER;
+
     bool isUserWinner(Play userChoice, Play cpuChoice)
     {
         switch(userChoice)
@@ -40,9 +42,14 @@ namespace RPS
         }
     }
 
+    RPS::Play Game::getLastCpuPlay() {
+        return static_cast<Play>(lastPlay);
+    }
+
     RPS::Result Game::play(Play userPlay) {
         auto cpuRng = dist3(rng);
         auto cpuPlay = static_cast<Play>(cpuRng);
+        lastPlay = cpuPlay;
 
         if (userPlay == cpuPlay)
             return Result::DRAW;

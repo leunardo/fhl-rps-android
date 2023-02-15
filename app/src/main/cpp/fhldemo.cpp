@@ -35,3 +35,9 @@ Java_com_microsoft_fhldemo_RPSNative_PlayGame(JNIEnv *env, jclass clazz, jint us
 
     return static_cast<jint>(result);
 }
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_microsoft_fhldemo_RPSNative_GetLastCPUPlay(JNIEnv *env, jclass clazz) {
+    RPS::Play cpuPlay = game.getLastCpuPlay();
+    return static_cast<jint>(cpuPlay);
+}
