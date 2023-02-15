@@ -9,9 +9,9 @@ namespace RPS
 {
     enum class Play
     {
-        ROCK = 1,
-        PAPER = 2,
-        SCISSOR = 3
+        ROCK = 0,
+        PAPER = 1,
+        SCISSOR = 2
     };
 
     enum class Result

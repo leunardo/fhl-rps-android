@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.microsoft.rpsnative.Result
+import com.microsoft.rpsnative.Move
 
 class RockPaperScissors : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,35 +30,24 @@ class RockPaperScissors : AppCompatActivity() {
     private fun onSelectNextMove(v: View)
     {
         val choice = when(v.id) {
-            R.id.rock -> 1
-            R.id.paper -> 2
-            R.id.scissors -> 3
+            R.id.rock -> Move.ROCK.ordinal
+            R.id.paper -> Move.PAPER.ordinal
+            R.id.scissors -> Move.SCISSOR.ordinal
             else -> -1
         }
 
         val response = RPSNative.PlayGame(choice);
-        val result = Result.values()[response];
+        val winner = Result.values()[response];
         val cpuLastPlay = RPSNative.GetLastCPUPlay();
 
-        val resultPlay = when(result) {
+        val resultPlay = when(winner) {
             Result.DRAW -> "\nIt's a draw!"
             Result.USER -> "\nYou win!"
             Result.CPU -> "\nYou lose!"
         }
 
-        val userChoice = when(choice){
-            1 -> "ROCK"
-            2 -> "PAPER"
-            3 -> "SCISSOR"
-            else -> {"INVALID"}
-        }
-
-        val cpuPlay = when(cpuLastPlay){
-            1 -> "ROCK"
-            2 -> "PAPER"
-            3 -> "SCISSOR"
-            else -> {"INVALID"}
-        }
+        val userChoice = Move.values()[choice]
+        val cpuPlay = Move.values()[cpuLastPlay]
 
         val txt = "You played: $userChoice \n The CPU played: $cpuPlay $resultPlay"
 

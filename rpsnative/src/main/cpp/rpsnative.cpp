@@ -25,9 +25,9 @@ namespace RPS
 {
     std::random_device dev;
     std::mt19937 rng(dev());
-    std::uniform_int_distribution<std::mt19937::result_type> dist3(1,3);
+    std::uniform_int_distribution<std::mt19937::result_type> dist3(0,2);
 
-    RPS::Play lastPlay = Play::PAPER;
+    Play lastPlay = Play::PAPER;
 
     bool isUserWinner(Play userChoice, Play cpuChoice)
     {
@@ -38,7 +38,7 @@ namespace RPS
             case Play::ROCK:
                 return cpuChoice == Play::SCISSOR;
             case Play::SCISSOR:
-                return cpuChoice == Play::SCISSOR;
+                return cpuChoice == Play::PAPER;
         }
     }
 
