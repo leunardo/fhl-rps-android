@@ -23,7 +23,7 @@ class RockPaperScissors : AppCompatActivity() {
         }
     }
 
-    fun onSelectNextMove(v: View)
+    private fun onSelectNextMove(v: View)
     {
         val choice = when(v.id) {
             R.id.rock -> 1
