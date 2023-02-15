@@ -1,12 +1,12 @@
 package com.microsoft.fhldemo
 
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.microsoft.rpsnative.Result
 
 class RockPaperScissors : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
