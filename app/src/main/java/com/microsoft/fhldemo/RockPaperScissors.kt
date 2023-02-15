@@ -19,7 +19,10 @@ class RockPaperScissors : AppCompatActivity() {
         findViewById<Button>(R.id.play_again).setOnClickListener {
             findViewById<LinearLayout>(R.id.choices_btn).visibility = View.VISIBLE
             findViewById<Button>(R.id.play_again).visibility = View.INVISIBLE
-            findViewById<TextView>(R.id.result).text = ""
+            with(findViewById<TextView>(R.id.result)){
+                text = ""
+                visibility = View.INVISIBLE
+            }
         }
     }
 
@@ -34,11 +37,33 @@ class RockPaperScissors : AppCompatActivity() {
 
         val response = RPSNative.PlayGame(choice);
         val result = Result.values()[response];
+        val cpuLastPlay = RPSNative.GetLastCPUPlay();
 
-        val txt = when(result) {
-            Result.DRAW -> "It's a draw!"
-            Result.USER -> "You win!"
-            Result.CPU -> "You lose!"
+        val resultPlay = when(result) {
+            Result.DRAW -> "\nIt's a draw!"
+            Result.USER -> "\nYou win!"
+            Result.CPU -> "\nYou lose!"
+        }
+
+        val userChoice = when(choice){
+            1 -> "ROCK"
+            2 -> "PAPER"
+            3 -> "SCISSOR"
+            else -> {"INVALID"}
+        }
+
+        val cpuPlay = when(cpuLastPlay){
+            1 -> "ROCK"
+            2 -> "PAPER"
+            3 -> "SCISSOR"
+            else -> {"INVALID"}
+        }
+
+        val txt = "You played: $userChoice \n The CPU played: $cpuPlay $resultPlay"
+
+        with(findViewById<TextView>(R.id.result)){
+            text = txt
+            visibility = View.VISIBLE
         }
 
         findViewById<TextView>(R.id.result).text = txt

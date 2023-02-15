@@ -25,6 +25,7 @@ namespace RPS
     {
     public:
         Result play(Play userPlay);
+        Play getLastCpuPlay();
     };
 }
 
