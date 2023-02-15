@@ -2,16 +2,23 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".RockPaperScissors">
 
     <LinearLayout
         android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
 
         <TextView
             android:id="@+id/whatisnextplay_txt"
@@ -23,25 +30,52 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="550dp" />
+            android:layout_height="50dp" />
 
-        <Button
-            android:id="@+id/rock"
+        <TextView
+            android:id="@+id/result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rock" />
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/paper"
-            style="@style/Widget.AppCompat.Button"
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="339dp" />
+
+        <LinearLayout
+            android:id="@+id/choices_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Paper" />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/scissors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scissors" />
+
+            <Button
+                android:id="@+id/rock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rock" />
+
+            <Button
+                android:id="@+id/paper"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Paper" />
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/scissors"
+            android:id="@+id/play_again"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Scissors" />
+            android:layout_height="85dp"
+            android:text="Play again?"
+            android:visibility="invisible" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

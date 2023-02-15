@@ -29,7 +29,7 @@
 
             <Space
                 android:layout_width="259dp"
-                android:layout_height="709dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1" />
 
             <Button
@@ -41,7 +41,7 @@
 
             <Space
                 android:layout_width="259dp"
-                android:layout_height="709dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1" />
         </LinearLayout>
 
