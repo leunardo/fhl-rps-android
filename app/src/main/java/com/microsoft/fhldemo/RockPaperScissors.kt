@@ -13,7 +13,10 @@ class RockPaperScissors : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rock_paper_scissors)
+        configureViews();
+    }
 
+    private fun configureViews() {
         findViewById<Button>(R.id.rock).setOnClickListener {v -> onSelectNextMove(v)}
         findViewById<Button>(R.id.paper).setOnClickListener {v -> onSelectNextMove(v)}
         findViewById<Button>(R.id.scissors).setOnClickListener {v -> onSelectNextMove(v)}
@@ -56,7 +59,6 @@ class RockPaperScissors : AppCompatActivity() {
             visibility = View.VISIBLE
         }
 
-        findViewById<TextView>(R.id.result).text = txt
         findViewById<LinearLayout>(R.id.choices_btn).visibility = View.INVISIBLE
         findViewById<Button>(R.id.play_again).visibility = View.VISIBLE
     }
